@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TrueToronto</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page=header">
+        <ul class="nav nav-tabs pull-right">
+          <li><%= link_to "Welcome", "/" %></li>
+          <li><%= link_to "About", "/about" %></li>
+        </ul>      
+        <h1><%=link_to "True Toronto","/"%> 
+          <small>// Seu guia em Particular</small>
+        </h1>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
