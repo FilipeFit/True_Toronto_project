@@ -9,12 +9,13 @@
   <body>
     <div class="container">
       <div class="page=header">
-        <ul class="nav nav-tabs pull-right">
-          <li><%= link_to "Welcome", "/" %></li>
-          <li><%= link_to "About", "/about" %></li>
+        <ul class="nav nav-pills navbar-right">
+          <li><%= link_to "Welcome", root_url %></li>
+          <li><%= link_to "About", about_url %></li>
+          <li><%= link_to "Manage Posts", posts_url %></li>
         </ul>      
         <h1><%=link_to "True Toronto","/"%> 
-          <small>// Seu guia em Particular</small>
+          <small>// Seu guia Particular</small>
         </h1>
       </div>
       
