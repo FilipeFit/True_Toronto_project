@@ -9,19 +9,30 @@
   <body>
     <div class="container">
       <div class="page=header">
+
         <ul class="nav nav-pills navbar-right">
-          <li><%= link_to "Welcome", root_url %></li>
-          <li><%= link_to "About", about_url %></li>
-          <li><%= link_to "Manage Posts", posts_url %></li>
-        </ul>      
-        <h1><%=link_to "True Toronto","/"%> 
+            <li><%= link_to "Blog", root_url %></li>
+            <li><%= link_to "Serviços", about_url %></li>
+            <%if user_signed_in?%>
+              <!--<li><%= link_to current_user.email, root_url%></li> -->
+              <li><%= link_to "Editar Posts", posts_url %></li>
+              <li><%= link_to 'Seus dados', edit_user_registration_path %></li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            <%else%>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <%end%>
+          </ul>
+          <h1><%=link_to "True Toronto","/"%> 
           <small>// Seu guia Particular</small>
         </h1>
       </div>
-      
+          
+          
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <%= yield %>
+          <%= flash_messages %>
+           <%= yield %>
         </div>
       </div>
     </div>

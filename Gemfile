@@ -24,6 +24,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 #Twitter Bootstrap
 gem 'twitter-bootstrap-rails'
+#Devise to make the user control
+gem 'devise'
+#Bootstrap Forms
+gem 'bootstrap_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
