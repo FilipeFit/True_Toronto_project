@@ -1,9 +1,8 @@
-<% if notice.present? %>
-  <p class="alert alert-info">
-    <%= notice %>
-  </p>
-<%end%>
-
 <%= render 'posts/post', post: @post%>
 
+<h3 class="bg-success">Enviar um comentários</h3>
+<%= render "comments/form" %>
+
+<h3 class="bg-success">Comentários</h3>
+<%= render @post.comments%>
 

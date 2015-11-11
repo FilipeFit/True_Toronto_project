@@ -1,29 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%if can? :update, @post%>
+  <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
+  <h1>Listing Posts</h1>
 
-<table class="table">
-  <thead>
-    <tr>      
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= truncate(post.content, lenght: 100) %></td>     
-        <td><%= button_to "Show", post, :method => :get, class: "btn btn-primary" %></td>
-        <td><%= button_to "Edit", edit_post_path(post), :method => :get, class: "btn btn-warning"%></td>
-        <td><%= button_to "Delete", post, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>            
+  <table class="table">
+    <thead>
+      <tr>      
+        <th>Title</th>
+        <th>Content</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= truncate(post.content, lenght: 100) %></td>     
+          <td><%= button_to "Show", post, :method => :get, class: "btn btn-primary" %></td>
+          <td><%= button_to "Edit", edit_post_path(post), :method => :get, class: "btn btn-warning"%></td>
+          <td><%= button_to "Delete", post, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>            
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Post', new_post_path %>
+  <br>
+
+  <%= link_to 'New Post', new_post_path %>
+<%end%>

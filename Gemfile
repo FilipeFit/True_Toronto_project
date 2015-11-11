@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'twitter-bootstrap-rails'
 #Devise to make the user control
 gem 'devise'
+#Authorization using CANCAN
+gem "cancan"
 #Bootstrap Forms
 gem 'bootstrap_form'
 

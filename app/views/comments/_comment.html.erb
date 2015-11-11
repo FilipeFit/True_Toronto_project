@@ -1,0 +1,5 @@
+<div id="comments" class="hero-unit">
+  <h4><%= comment.user.username%></h4>
+  <%=simple_format comment.body%>
+  <p class="text-muted">Enviado em <%= time_ago_in_words comment.created_at %></p>
+</div>

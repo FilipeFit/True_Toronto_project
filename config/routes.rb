@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
-  devise_for :users
-  resources :posts
+  # Overriding the Devise method to add the username and be able to persist 
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  #Creating the rout to add a comment in a post
+  resources :posts do
+    post "comments",to: "comments#create"
+  end
   root 'pages#welcome'
 
   get 'about' => 'pages#about'

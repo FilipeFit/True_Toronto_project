@@ -3,9 +3,10 @@
 </h2>
 
 <p>
+  <%= pluralize(post.comments.size, "Comentario(s)")%>
   <%= simple_format(post.content) %>
 </p>
 
 <p class="text-muted">
-<%= post.created_at.to_formatted_s(:long)%>
+  <%= post.created_at.to_formatted_s(:long)%>
 </p>
