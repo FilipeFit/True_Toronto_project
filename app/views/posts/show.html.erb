@@ -1,7 +1,11 @@
 <%= render 'posts/post', post: @post%>
 
-<h3 class="bg-success">Enviar um comentários</h3>
-<%= render "comments/form" %>
+<%if user_signed_in?%>
+  <h3 class="bg-success">Enviar um comentário</h3>
+  <%= render "comments/form" %>
+<%else%>
+  <p class="text-muted">Faça login para fazer um comentário</p>
+<%end%>
 
 <h3 class="bg-success">Comentários</h3>
 <%= render @post.comments%>

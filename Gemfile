@@ -30,6 +30,8 @@ gem 'devise'
 gem "cancan"
 #Bootstrap Forms
 gem 'bootstrap_form'
+#Adding bootstrap ssas
+gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

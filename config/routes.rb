@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :posts do
     post "comments",to: "comments#create"
   end
+
+  #Route to delete a comment
+  delete "comments/:id",to: "comments#destroy", as: :comment
+
+  #Root page with all posts
   root 'pages#welcome'
 
   get 'about' => 'pages#about'
