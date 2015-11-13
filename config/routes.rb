@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :produtos
   # Overriding the Devise method to add the username and be able to persist 
   devise_for :users, :controllers => { registrations: 'registrations' }
   #Creating the rout to add a comment in a post
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   root 'pages#welcome'
 
   get 'about' => 'pages#about'
+
+  get 'servicos' => 'pages#servicos'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

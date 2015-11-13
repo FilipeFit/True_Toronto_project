@@ -11,4 +11,12 @@ end
     end
     nil
   end
+
+  def format_price(number)
+    number_to_currency number,
+      unit: "$",
+      separator: ",",
+      delimiter: "."
+  end
+
 end
