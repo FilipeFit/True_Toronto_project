@@ -1,18 +1,10 @@
-<%= bootstrap_form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> proibindo o post de ser saldo:</h2>
+<%= bootstrap_form_for @post, :html => {:multipart => true} do |f| %>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <%= f.text_field :title, label: "Titulo"%>
 
   <%= f.text_area :content, label: "Conteudo"%>
+
+  <%= f.file_field :image, label: "Imagem"%>
 
   <%= f.submit "Salvar", class: "btn btn-primary btn-xs"%>
 <% end %>

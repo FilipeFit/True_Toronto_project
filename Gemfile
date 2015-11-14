@@ -30,9 +30,16 @@ gem 'devise'
 gem "cancan"
 #Bootstrap Forms
 gem 'bootstrap_form'
+gem 'will_paginate-bootstrap'
 #Adding bootstrap ssas
 gem 'bootstrap-sass'
-
+#Gems to manipulate images
+gem "rmagick"
+gem "carrierwave"
+#Gem to handle pagination
+gem 'will_paginate'
+#Used to translate error messages
+gem 'rails-i18n'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

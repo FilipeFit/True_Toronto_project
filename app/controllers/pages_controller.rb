@@ -3,10 +3,10 @@ class PagesController < ApplicationController
   end
 
   def welcome
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc).page(params[:page]).per_page(3)
   end
 
   def servicos
-    @produtos = Produto.all
+    @produtos = Produto.order(created_at: :desc)
   end
 end

@@ -1,12 +1,16 @@
-<h2>
-  <%= link_to post.title, post %>
-</h2>
+<div class="row">
+  <h2>
+    <%= link_to post.title, post %>
+  </h2>
+  <p>
+    <%= pluralize(post.comments.size, "Comentario(s)")%>
+    <%= simple_format(post.content) %>
+  </p>
+  <div class="thumbnail">
+     <%= image_tag post.image_url(:thumb).to_s%>
+  </div>
 
-<p>
-  <%= pluralize(post.comments.size, "Comentario(s)")%>
-  <%= simple_format(post.content) %>
-</p>
-
-<p class="text-muted">
-  <%= post.created_at.to_formatted_s(:long)%>
-</p>
+  <p class="text-muted">
+    <%= post.created_at.to_formatted_s(:long)%>
+  </p>
+</div>
