@@ -9,3 +9,5 @@
   body { padding-top: 70px; }
 
   img { width: 100%;}
+
+  div { word-wrap: break-word;}

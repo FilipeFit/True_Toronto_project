@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   def admin?
     admin
   end
-
-  validates_presence_of :username
-  validates_uniqueness_of :username
+  validates :email, length: {minimum: 5, maximum: 250}, allow_blank: false
+  validates :username, length: {minimum: 5, maximum: 70}, allow_blank: false
 end
