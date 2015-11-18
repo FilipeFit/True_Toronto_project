@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "Comentário criado com sucesso!"
     else
-      flash[:alert] = "O texto do comentários e obrigatório"
+      flash[:error] = "O texto do comentários e obrigatório"
     end  
     redirect_to @post
   end

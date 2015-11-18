@@ -9,7 +9,8 @@
   <%end%>
 
   <h3 class="bg-success">Comentários</h3>
-  <%= render @post.comments.order(created_at: :desc)%>
+  <%= render @comments%>
 <div>
+<%= will_paginate @comments, renderer: BootstrapPagination::Rails, :previous_label => 'anterior', :next_label => 'proxima'%>
 
 

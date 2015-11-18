@@ -1,5 +1,5 @@
 <h4><%= comment.user.username%></h4>
-<%=simple_format word_wrap(comment.body, line_width: 8)%>
+<%=simple_format comment.body%>
 <p class="text-muted">Enviado em <%= time_ago_in_words comment.created_at %></p>
 <%if user_signed_in?%>
   <%if current_user.id == comment.user_id %>

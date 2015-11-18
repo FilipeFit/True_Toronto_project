@@ -1,6 +1,4 @@
 <% @posts.each do |post| %>
   <%= render 'posts/post', post: post%>
 <%end%>
-<div class="row">
-  <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-</div>
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails, :previous_label => 'anterior', :next_label => 'proxima'%>

@@ -40,6 +40,8 @@ gem "carrierwave"
 gem 'will_paginate'
 #Used to translate error messages
 gem 'rails-i18n'
+#data validator
+gem 'date_validator'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

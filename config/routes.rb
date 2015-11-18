@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  
-  resources :produtos
+
+  get '/cart' => 'cart#index'
+  get '/cart/clear' => 'cart#clearCart'
+  get '/cart/:id' => 'cart#add'
+
   # Overriding the Devise method to add the username and be able to persist 
   devise_for :users, :controllers => { registrations: 'registrations' }
   #Creating the rout to add a comment in a post
   resources :posts do
     post "comments",to: "comments#create"
   end
+
+  resources :produtos
 
   #Route to delete a comment
   delete "comments/:id",to: "comments#destroy", as: :comment
