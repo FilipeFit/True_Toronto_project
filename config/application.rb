@@ -1,8 +1,5 @@
 require File.expand_path('../boot', __FILE__)
 require 'rails/all'
-APP_CONFIG = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
-APP_CONFIG.merge! APP_CONFIG.fetch(Rails.env, {})
-APP_CONFIG.symbolize_keys!
 
 require 'rails/all'
 

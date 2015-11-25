@@ -8,13 +8,13 @@ class Cart < ActiveRecord::Base
 
   def paypal_encrypted(return_url, notify_url)
     values = {
-      :business => APP_CONFIG[:paypal_email],
+      :business => ENV["paypal_email"],
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
       :invoice => id,
       :notify_url => notify_url,
-      :cert_id => APP_CONFIG[:paypal_cert_id]
+      :cert_id => ENV["paypal_cert_id"]
     }
     itens_cart.each_with_index do |item, index|
       values.merge!({

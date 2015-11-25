@@ -28,9 +28,9 @@
 </p>
 
 <%if current_user.cliente != nil%>
-  <%= form_tag APP_CONFIG[:paypal_url] do %>
+  <%= form_tag ENV["paypal_url"] do %>
     <%= hidden_field_tag :cmd, "_s-xclick" %>
-    <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(servicos_url, payment_notifications_url(:secret => APP_CONFIG[:paypal_secret])) %>
+    <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(servicos_url, payment_notifications_url(:secret => ENV["paypal_secret"])) %>
     <p><%= submit_tag "Finalizar compra", class: "btn btn-primary" %></p>
   <% end %>
 <%else%>
