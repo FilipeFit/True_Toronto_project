@@ -44,6 +44,8 @@ gem 'will_paginate'
 gem 'rails-i18n'
 #data validator
 gem 'date_validator'
+# Gem to handle config files
+gem "figaro"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Debugger
