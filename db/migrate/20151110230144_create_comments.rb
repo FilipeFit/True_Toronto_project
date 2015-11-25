@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :post_id, null: false
       t.text :body, null: false
       #Somente para commit da correcao
-      t.timestamps, null: false
+      t.timestamps null: false
     end
   end
 end
