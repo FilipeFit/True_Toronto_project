@@ -4,7 +4,6 @@
 <p><%= simple_format(produto.descricao) %></p>
 <p><strong>Valor: <%=format_price(produto.price)%></strong></p>
 <%if user_signed_in?%>
-  <p><a href="/cart/<%=produto.id%>" class="btn btn-primary btn-lg enable" role="button">
-    <span style="font-size:1.5em; font-weight: bold;" class="glyphicon glyphicon-shopping-cart">Contratar</span></a><p>
+  <%= link_to "Contratar", itens_cart_index_path(:produto_id => produto), :method => :post, class: "btn btn-primary btn-lg enable glyphicon glyphicon-shopping-cart" %>
 <%end%>
 

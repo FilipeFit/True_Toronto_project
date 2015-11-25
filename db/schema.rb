@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114194420) do
+ActiveRecord::Schema.define(version: 20151125011846) do
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "purchased_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "clientes", force: :cascade do |t|
+    t.integer  "user_id",                                          null: false
+    t.string   "nome_completo",       limit: 250,                  null: false
+    t.string   "endereco_toronto",    limit: 300,                  null: false
+    t.date     "data_chegada",                                     null: false
+    t.datetime "data_hora_voo",                                    null: false
+    t.string   "numero_voo",          limit: 100,                  null: false
+    t.integer  "tempo_permanencia",                                null: false
+    t.date     "data_nascimento",                                  null: false
+    t.string   "nome_escola",         limit: 300
+    t.text     "obs",                 limit: 5000
+    t.boolean  "ativo",                            default: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.boolean  "concordo_termos_uso",              default: true,  null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +42,24 @@ ActiveRecord::Schema.define(version: 20151114194420) do
     t.text     "body",       limit: 500
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "itens_carts", force: :cascade do |t|
+    t.integer  "produto_id", null: false
+    t.integer  "cart_id",    null: false
+    t.decimal  "preco",      null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payment_notifications", force: :cascade do |t|
+    t.text     "params"
+    t.integer  "cart_id",        null: false
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "posts", force: :cascade do |t|

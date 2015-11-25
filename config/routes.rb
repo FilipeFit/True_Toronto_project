@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
 
-  get '/cart' => 'cart#index'
-  get '/cart/clear' => 'cart#clearCart'
-  get '/cart/:id' => 'cart#add'
+  resources :cart
+  resources :itens_cart
+
+  get 'limpar', :controller => 'itens_cart', :action => 'limpar'
+
+  get 'current_cart', :controller => 'carts', :action => 'show', :id => 'current'
+
+  resources :clientes
 
   # Overriding the Devise method to add the username and be able to persist 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations' } 
   #Creating the rout to add a comment in a post
   resources :posts do
     post "comments",to: "comments#create"
   end
 
   resources :produtos
+  post 'payment_notifications', :controller => 'payment_notification', :action => 'create'
 
   #Route to delete a comment
   delete "comments/:id",to: "comments#destroy", as: :comment
@@ -20,6 +26,10 @@ Rails.application.routes.draw do
   root 'pages#welcome'
 
   get 'about' => 'pages#about'
+
+  get 'como_funciona' => 'pages#como_funciona'
+
+  get 'blog' => 'pages#blog'
 
   get 'servicos' => 'pages#servicos'
 

@@ -1,0 +1,38 @@
+  `<h1>Comprar serviços<h1>
+
+<table id="itens_cart" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th><p>Produto</p></th>
+      <th><p>Preco</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for itens_cart in @cart.itens_cart %>
+      <tr>
+        <td><%= itens_cart.produto.nome %></td>
+        <td><%= format_price(itens_cart.produto.price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tr>
+    <td class="total" colspan="2">
+      Total: <%= number_to_currency @cart.preco_total %>
+    </td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to "Comprar mais serviços", servicos_url %> |
+  <%= link_to "Limpar", limpar_path %> 
+</p>
+
+<%if current_user.cliente != nil%>
+  <%= form_tag APP_CONFIG[:paypal_url] do %>
+    <%= hidden_field_tag :cmd, "_s-xclick" %>
+    <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(servicos_url, payment_notifications_url(:secret => APP_CONFIG[:paypal_secret])) %>
+    <p><%= submit_tag "Finalizar compra", class: "btn btn-primary" %></p>
+  <% end %>
+<%else%>
+  <%= button_to "Continuar", new_cliente_path, :method => :get, class: "btn btn-primary" %></td>
+<%end%>

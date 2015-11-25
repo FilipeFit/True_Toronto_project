@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController  
 
+  before_action :authenticate_user!
+
   def owner?
     comment = Comment.find(params[:id])
     current_user.id == comment.user_id

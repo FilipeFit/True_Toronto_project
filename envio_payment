@@ -1,0 +1,1 @@
+curl -d "txn_id=69C28246T0677612T&invoice=1&payment_status=Completed&secret=foobar&receiver_email=filipe.torqueto@gmail.com&mc_gross=100.0&mc_currency=USD" http://localhost:3000/payment_notifications

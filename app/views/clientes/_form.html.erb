@@ -1,0 +1,28 @@
+<%= bootstrap_form_for(@cliente) do |f| %>
+
+  <%= f.text_field :nome_completo, label: "Nome completo"%>
+
+  <%= f.date_field :data_nascimento, label: "Data de nascimento"%>
+
+  <%= f.text_field :endereco_toronto, label: "Endereço em Toronto"%>
+
+  <%= f.date_field :data_chegada, label: "Data da chegada"%>
+
+  <%= f.datetime_local_field :data_hora_voo, label: "Data e hora do voo"%>
+
+  <%= f.text_field :numero_voo, label: "Numero do voo"%>
+
+  <%= f.number_field :tempo_permanencia, label: "Tempo de permanência (em dias)"%>
+
+  <%= f.text_field :nome_escola, label: "Nome da escola"%>
+
+  <%= f.text_area :obs, label: "Observações gerais"%>
+
+  <h3>Termos de uso</h3>
+  <p>Os serviços do True Toronto são para uma única pessoa ou para um casal, os guias são montados individualmente e são de uso pessoal do contratante não podendo ser compartilhado. Todas os encontros são de duração maxima de 3 horas</p>
+
+  <%= f.check_box :concordo_termos_uso, label: "Concordo com os termos de uso dos serviços da equipe do True Toronto" %>
+
+  <%= f.submit "Salvar", class: "btn btn-primary btn-xs"%>
+
+<% end %>
