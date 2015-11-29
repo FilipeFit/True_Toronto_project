@@ -1,4 +1,4 @@
 <%= bootstrap_form_for [@post, Comment.new] do |f| %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, label: "Comentário"%>
   <%= f.submit "Enviar", class: "btn btn-primary btn-xs"%>
 <%end%>

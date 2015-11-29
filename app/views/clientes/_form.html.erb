@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@cliente) do |f| %>
+<%= bootstrap_form_for(@cliente)  do |f| %>
 
   <%= f.text_field :nome_completo, label: "Nome completo"%>
 
@@ -18,11 +18,37 @@
 
   <%= f.text_area :obs, label: "Observações gerais"%>
 
-  <h3>Termos de uso</h3>
-  <p>Os serviços do True Toronto são para uma única pessoa ou para um casal, os guias são montados individualmente e são de uso pessoal do contratante não podendo ser compartilhado. Todas os encontros são de duração maxima de 3 horas</p>
+  <div class="well well-lg">
+    <h3>Termos de uso</h3>
+    <p><strong>Com relação aos serviços</strong></p>
+    <p>Os serviços do True Toronto são para uma única pessoa, bem como os guias são montados individualmente e são de uso pessoal do contratante não podendo ser compartilhados.</p>
+    <p><strong>Com relação aos encontros</strong></p>
+    <p>Todas os encontros são de duração máxima de 3 horas e acontecerão nas sextas feiras ou finais de semana</p>
+    <p>E de total responsabilidade do contratante estar disponível para os encontros dando sugestões dos melhores horários dentro dos dias citados.</p>
+    <p><strong>Com relação a imigração e processos legais de chegada ao Canada</strong></p>
+    <p>O True Toronto não se envolve em nenhum momento em assuntos relacionados a imigração ou processos legais do contratante, e de total responsabilidade do contratante estar
+apto a chegar a Toronto.</p>
+    <p>O True Toronto não presta nenhum serviço relacionado a imigração ou procedimentos legais</p>
+    <p><strong>Com relação a políticas de cancelamento e reembolso </strong></p>
+    <p>O contratante pode pedir o cancelamento do serviço a qualquer momento, caso algum dos serviço ja tenha sido feita o reembolso será feito de forma proporcional de acordo com a etapa na qual o processo se encontra</p>
+    <%= f.check_box :concordo_termos_uso, label: "Concordo com os termos de uso dos serviços da equipe do True Toronto" ,:disabled => true, checked: true%>
+  </div>
 
-  <%= f.check_box :concordo_termos_uso, label: "Concordo com os termos de uso dos serviços da equipe do True Toronto" %>
-
-  <%= f.submit "Salvar", class: "btn btn-primary btn-xs"%>
+  <%= f.submit "Salvar", class: "btn btn-primary btn-xs", checked: :concordo_termos_uso?%>
 
 <% end %>
+
+<script type="text/javascript" language="JavaScript">
+<!--
+function checkCheckBoxes(theForm) {
+  if (
+  theForm.concordo_termos_uso.checked == false ) 
+  {
+    alert ('You didn\'t choose any of the checkboxes!');
+    return false;
+  } else {  
+    return true;
+  }
+}
+//-->
+</script>

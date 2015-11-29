@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151125011846) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "carts", force: :cascade do |t|
     t.datetime "purchased_at"
     t.datetime "created_at",   null: false
@@ -20,28 +23,28 @@ ActiveRecord::Schema.define(version: 20151125011846) do
   end
 
   create_table "clientes", force: :cascade do |t|
-    t.integer  "user_id",                                          null: false
-    t.string   "nome_completo",       limit: 250,                  null: false
-    t.string   "endereco_toronto",    limit: 300,                  null: false
-    t.date     "data_chegada",                                     null: false
-    t.datetime "data_hora_voo",                                    null: false
-    t.string   "numero_voo",          limit: 100,                  null: false
-    t.integer  "tempo_permanencia",                                null: false
-    t.date     "data_nascimento",                                  null: false
+    t.integer  "user_id",                                         null: false
+    t.string   "nome_completo",       limit: 250,                 null: false
+    t.string   "endereco_toronto",    limit: 300,                 null: false
+    t.date     "data_chegada",                                    null: false
+    t.datetime "data_hora_voo",                                   null: false
+    t.string   "numero_voo",          limit: 100,                 null: false
+    t.integer  "tempo_permanencia",                               null: false
+    t.date     "data_nascimento",                                 null: false
     t.string   "nome_escola",         limit: 300
-    t.text     "obs",                 limit: 5000
-    t.boolean  "ativo",                            default: false
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
-    t.boolean  "concordo_termos_uso",              default: true,  null: false
+    t.text     "obs"
+    t.boolean  "ativo",                           default: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.boolean  "concordo_termos_uso",             default: true,  null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.text     "body",       limit: 500
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id",    null: false
+    t.integer  "post_id",    null: false
+    t.text     "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "itens_carts", force: :cascade do |t|
@@ -64,36 +67,36 @@ ActiveRecord::Schema.define(version: 20151125011846) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",      limit: 40
-    t.text     "content"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "content",    limit: 10000
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "image"
   end
 
   create_table "produtos", force: :cascade do |t|
     t.string   "nome",       limit: 40
-    t.text     "descricao",  limit: 7000
+    t.text     "descricao"
     t.decimal  "price"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 250, default: "", null: false
-    t.string   "encrypted_password",                 default: "", null: false
+    t.string   "email",                  limit: 250, default: "",    null: false
+    t.string   "encrypted_password",                 default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "admin"
+    t.boolean  "admin",                              default: false
     t.string   "username",               limit: 70
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
