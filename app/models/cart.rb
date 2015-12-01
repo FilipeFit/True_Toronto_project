@@ -14,7 +14,8 @@ class Cart < ActiveRecord::Base
       :return => return_url,
       :invoice => id,
       :notify_url => notify_url,
-      :cert_id => ENV["paypal_cert_id"]
+      :cert_id => ENV["paypal_cert_id"],
+      :currency_code => 'CAD'
     }
     itens_cart.each_with_index do |item, index|
       values.merge!({
