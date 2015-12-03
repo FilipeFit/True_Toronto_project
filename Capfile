@@ -1,6 +1,8 @@
 # Load DSL and set up stages
 require 'capistrano/setup'
 
+invoke :production
+
 # Include default deployment tasks
 require 'capistrano/deploy'
 

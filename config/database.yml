@@ -17,8 +17,9 @@ test:
 
 production:
   adapter: postgresql
+  host: pgsql.truetoronto.com.br
   encoding: unicode
-  database: blog_test
+  database: truetoronto
   pool: 5
-  username: rbates
-  password:
+  username: truetoronto
+  password: Samy107456
