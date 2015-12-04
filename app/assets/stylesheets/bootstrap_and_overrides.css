@@ -20,3 +20,6 @@
   url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
   url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
+p,h1,h2,h3,h4,h5,h6 {text-align: justify}
+
